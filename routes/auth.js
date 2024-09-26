@@ -15,7 +15,7 @@ router.post('/login', (req, res) => {
     const { email, password } = req.body;
     const user = registeredUsers.find(user => user.email === email && user.password === password);
     if (user) { 
-        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1m' }); 
+        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '2m' }); 
         res.status(200).json({ token });
     } else {
         res.status(401).json({ error: 'Invalid credentials' });
