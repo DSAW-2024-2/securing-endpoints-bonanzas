@@ -4,6 +4,9 @@ const router = express.Router();
 let products = [];
 let possibleIdpr = 1;
 
+const { authenticateToken } = require('./auth');
+router.use(authenticateToken);
+
 const numericRegex = /^\d+$/;
 
 router.get('/', (req, res) => {

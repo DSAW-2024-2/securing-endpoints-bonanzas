@@ -7,6 +7,9 @@ const { products } = require('./products');
 let possibleIdord = 1;
 let orders = [];
 
+const { authenticateToken } = require('./auth');
+router.use(authenticateToken);
+
 const numericRegex = /^\d+$/;
 
 router.get('/', (req, res) => {

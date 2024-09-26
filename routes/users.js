@@ -4,6 +4,9 @@ const router = express.Router();
 let users = [];
 let possibleIdus = 1;
 
+const { authenticateToken } = require('./auth');
+router.use(authenticateToken);
+
 const numericRegex = /^\d+$/;
 
 router.get('/', (req, res) => {
